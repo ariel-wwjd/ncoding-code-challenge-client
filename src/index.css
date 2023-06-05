@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css?family=Mulish&display=swap');
+
+* {
+  font-family: 'Mulish', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;  
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  --color-red: #BD3C4B;
+  --color-black: #000000;
+  --color-white: #FFFFFF;
+
+  --text-color-title: #1D1D1F;
+  --text-color-subtitle: #001432;
+  --text-color-content: #333F48;
+}
