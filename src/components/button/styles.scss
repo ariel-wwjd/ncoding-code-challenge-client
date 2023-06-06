@@ -1,0 +1,61 @@
+@import '../scss/colors.scss';
+@import '../scss/fonts.scss';
+
+.button-component {
+  background-color: $color-transparent;
+  font-size: $font-size-normal;
+  padding: 14px 16px;
+  border: none;
+  display: flex;
+  align-items: center;
+  transition: box-shadow ease-in-out 150ms,
+              transform ease-in-out 150ms;
+  cursor: pointer;
+  
+  &:hover {
+    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.2);
+    transform: translateY(-1px);
+  }
+              
+  .label {
+    margin: auto;
+  }
+
+  &.quadrate {
+    background-color: $color-red;
+    color: $color-white;
+    font-weight: 700;
+    &:hover {
+      box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.2);
+      transform: translateY(-1px);
+    }
+  }
+
+  &.rounded {
+    background-color: $color-transparent-gray;
+    color: $text-color-title;
+    border-radius: 8px;
+    width: 100%;
+
+    &.small {
+      padding: 6px;
+    }
+  }
+
+  &.spherical {
+    background-color: $text-color-title;
+    border-radius: 100px;
+    color: $color-white;
+    font-weight: 600;
+    width: 100%;
+
+    &.small {
+      line-height: 70%;
+    }
+  }
+
+  &.small {
+    font-size: $font-size-small;
+    width: fit-content;
+  }
+}
