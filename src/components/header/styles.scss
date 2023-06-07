@@ -1,0 +1,42 @@
+@import '../scss/colors.scss';
+@import '../scss/fonts.scss';
+
+.header-component {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 104px;
+  border-bottom: 1px solid rgba(0, 20, 50, 0.1);;
+
+  & .logo {
+    font-weight: 600;
+    font-size: 72px;
+    margin-left: 20px;
+  }
+
+  & .items {
+    display: flex;
+
+    & .item {
+      list-style: none;
+      font-size: $font-size-small;
+      margin: 0px 28px;
+      cursor: pointer;
+
+      &:hover {
+        font-weight: 800;
+      }
+
+      &.active {
+        font-weight: 800;
+        cursor: default;
+        pointer-events: none;
+      }
+    }
+  }
+
+  &.buttons {
+    margin-right: 20px;
+    margin: 20px, 30px;
+  }
+}
