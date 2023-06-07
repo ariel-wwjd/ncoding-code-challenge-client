@@ -6,9 +6,9 @@ import { ButtonType } from '../button/types';
 import { IHeader } from './types';
 import './styles.scss';
 
-const Header: React.FC<IHeader> = ({ navItems, onRegisterOrLogin }) => {
+const Header: React.FC<IHeader> = ({ navItems, onRegisterOrLogin, currentPage }) => {
   const items = navItems.map((item) => (
-    <li className={`item ${className('active')(item.isActive)}`} key={item.id} onClick={item.onClick}>{item.label} ▾</li>
+    <li className={`item ${className('active')(item.id === currentPage)}`} key={item.id} onClick={item.onClick}>{item.label} ▾</li>
   ));
 
   return (
