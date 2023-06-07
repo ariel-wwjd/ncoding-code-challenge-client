@@ -1,0 +1,1 @@
+export { AvailableCourses } from './AvailableCourses';
