@@ -1,36 +1,40 @@
-export const headerItems = [
-  {
-    id: 'AvailableCourses',
-    label: 'Available Courses',
-    onClick: () => {
-      console.log('click');
+const headerItems = (navigate: (route: string) => void) => {
+  return [
+    {
+      id: 'AvailableCourses',
+      label: 'Available Courses',
+      onClick: () => {
+        navigate('/available-courses');
+      },
     },
-  },
-  {
-    id: 'ContinuingEducation',
-    label: 'Continuing Education',
-    onClick: () => {
-      console.log('click');
+    {
+      id: 'ContinuingEducation',
+      label: 'Continuing Education',
+      onClick: () => {
+        console.log('click');
+      },
     },
-  },
-  {
-    id: 'MyCourses',
-    label: 'My Courses',
-    onClick: () => {
-      console.log('click');
+    {
+      id: 'MyCourses',
+      label: 'My Courses',
+      onClick: () => {
+        navigate('/my-courses');
+      },
     },
-  },
-  {
-    id: 'Community',
-    label: 'Community',
-    onClick: () => {
-      console.log('click');
+    {
+      id: 'Community',
+      label: 'Community',
+      onClick: () => {
+        console.log('click');
+      },
     },
-  },
-];
+  ];
+};
 
-export const currentPageHeaderItem = {
+const currentPageHeaderItem = {
   home: 'AvailableCourses',
-  availableCourses: 'ContinuingEducation',
+  availableCourses: 'AvailableCourses',
   myCourses: 'MyCourses',
 };
+
+export { headerItems, currentPageHeaderItem };
