@@ -2,21 +2,19 @@ import { Route, Routes, BrowserRouter, Navigate } from 'react-router-dom';
 import { PrivateRoutes } from './PrivateRoutes';
 import { PublicRoutes } from './PublicRoutes';
 
-type Status = 'checking' | 'authenticated' | 'no-authenticated';
-
-const status: Status = 'authenticated';
+const status = true;
 
 const AppRoutes = () => {
   return (
     <>
       <BrowserRouter>
         <Routes>
-          {status === 'authenticated' ? (
+          {status ? (
             <Route path='/*' element={<PrivateRoutes />} />
           ) : (
             <Route path='/*' element={<PublicRoutes />} />
           )}
-          <Route path='*' element={<Navigate to='./home' replace />} />
+          <Route path='*' element={<Navigate to='./' replace />} />
         </Routes>
       </BrowserRouter>
     </>

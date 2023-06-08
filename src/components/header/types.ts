@@ -6,6 +6,7 @@ export interface IHeaderNavItem {
 
 export interface IHeader {
   navItems: IHeaderNavItem[];
-  onRegisterOrLogin(): void;
+  onRegisterOrLoginOrLogout(): void;
+  registerOrLoginOrLogoutLabel: string;
   currentPage: string;
 }

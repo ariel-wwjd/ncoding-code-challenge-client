@@ -6,7 +6,12 @@ import { ButtonType } from '../button/types';
 import { IHeader } from './types';
 import './styles.scss';
 
-const Header: React.FC<IHeader> = ({ navItems, onRegisterOrLogin, currentPage }) => {
+const Header: React.FC<IHeader> = ({
+  navItems,
+  onRegisterOrLoginOrLogout,
+  currentPage,
+  registerOrLoginOrLogoutLabel,
+}) => {
   const items = navItems.map((item) => (
     <li
       className={`item ${className('active')(item.id === currentPage)}`}
@@ -22,7 +27,11 @@ const Header: React.FC<IHeader> = ({ navItems, onRegisterOrLogin, currentPage })
       <div className='logo'>Logo</div>
       <ul className='items'>{items}</ul>
       <div className='buttons'>
-        <Button label='Register or Login' type={ButtonType.quadrate} onClick={onRegisterOrLogin} />
+        <Button
+          label={registerOrLoginOrLogoutLabel}
+          type={ButtonType.quadrate}
+          onClick={onRegisterOrLoginOrLogout}
+        />
       </div>
     </div>
   );
@@ -35,7 +44,8 @@ Header.propTypes = {
   //     label: PropTypes.string.isRequired,
   //     isActive: PropTypes.bool.isRequired,
   //   })).isRequired
-  onRegisterOrLogin: PropTypes.func.isRequired,
+  onRegisterOrLoginOrLogout: PropTypes.func.isRequired,
+  registerOrLoginOrLogoutLabel: PropTypes.string.isRequired,
 };
 
 export { Header };

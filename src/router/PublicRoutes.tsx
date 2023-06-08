@@ -4,8 +4,8 @@ import { Home } from '../views/home';
 const PublicRoutes = () => {
   return (
     <Routes>
-      <Route path='home' element={<Home />} />
-      <Route path='*' element={<Navigate to='/home' replace />} />
+      <Route path='/' element={<Home />} />
+      <Route path='*' element={<Navigate to='/' replace />} />
     </Routes>
   );
 };

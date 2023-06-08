@@ -5,17 +5,24 @@ import { Footer } from '../../components/footer';
 import { ILayout } from './types';
 import './styles.scss';
 
-const Layout: React.FC<ILayout> = ({ children, headerItems, onRegisterOrLogin, currentPage }) => {
-  const onRegisterOrLoginHandler = () => {
-    onRegisterOrLogin();
+const Layout: React.FC<ILayout> = ({
+  children,
+  headerItems,
+  onRegisterOrLoginOrLogout,
+  currentPage,
+  registerOrLoginOrLogoutLabel,
+}) => {
+  const onRegisterOrLoginOrLogoutHandler = () => {
+    onRegisterOrLoginOrLogout();
   };
 
   return (
     <div className='layout-view'>
       <Header
         navItems={headerItems}
-        onRegisterOrLogin={onRegisterOrLoginHandler}
+        onRegisterOrLoginOrLogout={onRegisterOrLoginOrLogoutHandler}
         currentPage={currentPage}
+        registerOrLoginOrLogoutLabel={registerOrLoginOrLogoutLabel}
       />
       <div className='content'>{children}</div>
       <Footer
@@ -37,7 +44,8 @@ Layout.propTypes = {
     PropTypes.node,
   ]).isRequired,
   // headerItems: TODO: find the right way to use prop types from  IHeaderItem as in the Header.tsx file
-  onRegisterOrLogin: PropTypes.func.isRequired,
+  onRegisterOrLoginOrLogout: PropTypes.func.isRequired,
+  registerOrLoginOrLogoutLabel: PropTypes.string.isRequired,
 };
 
 export { Layout };

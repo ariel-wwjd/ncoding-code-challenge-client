@@ -4,6 +4,7 @@ import { IHeaderNavItem } from '../../components/header/types';
 export interface ILayout {
   children: string | ReactNode | ReactNode[];
   headerItems: IHeaderNavItem[];
-  onRegisterOrLogin(): void;
+  onRegisterOrLoginOrLogout(): void;
+  registerOrLoginOrLogoutLabel: string;
   currentPage: string;
 }
