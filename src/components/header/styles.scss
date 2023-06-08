@@ -9,7 +9,7 @@
   border-bottom: 1px solid rgba(0, 20, 50, 0.1);;
 
   & .logo {
-    font-weight: 600;
+    font-weight: $font-weight-medium;
     font-size: 72px;
     margin-left: 20px;
   }
@@ -24,11 +24,11 @@
       cursor: pointer;
 
       &:hover {
-        font-weight: 800;
+        font-weight: $font-weight-bold;
       }
 
       &.active {
-        font-weight: 800;
+        font-weight: $font-weight-bold;
         cursor: default;
         pointer-events: none;
       }
