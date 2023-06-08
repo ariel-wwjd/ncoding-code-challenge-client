@@ -8,4 +8,4 @@ export interface IHeader {
   navItems: IHeaderNavItem[];
   onRegisterOrLogin(): void;
   currentPage: string;
-};
+}

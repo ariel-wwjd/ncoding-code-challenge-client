@@ -5,6 +5,6 @@ const classNames = (classes: { class: string; hasClass: boolean }[]) => {
   return names;
 };
 
-const className = (name: string) => (hasClass: boolean) => (hasClass ? name : '');
+const className = (name: string) => (hasClass: boolean) => hasClass ? name : '';
 
 export { classNames, className };

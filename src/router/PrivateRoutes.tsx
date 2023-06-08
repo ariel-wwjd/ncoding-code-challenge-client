@@ -8,10 +8,10 @@ const PrivateRoutes = () => {
     <Routes>
       <Route path='/' element={<Home />} />
       <Route path='available-courses' element={<AvailableCourses />} />
-      <Route path='my-courses' element={<MyCourses />} /> 
+      <Route path='my-courses' element={<MyCourses />} />
       <Route path='*' element={<Navigate to='/' replace />} />
     </Routes>
-  )
-}
+  );
+};
 
 export { PrivateRoutes };

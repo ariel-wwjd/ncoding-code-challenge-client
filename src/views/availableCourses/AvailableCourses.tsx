@@ -7,10 +7,14 @@ const AvailableCourses = () => {
   };
 
   return (
-    <Layout headerItems={headerItems} onRegisterOrLogin={onRegisterOrLoginHandler} currentPage={currentPageHeaderItem.availableCourses}>
+    <Layout
+      headerItems={headerItems}
+      onRegisterOrLogin={onRegisterOrLoginHandler}
+      currentPage={currentPageHeaderItem.availableCourses}
+    >
       Available Courses Page
     </Layout>
-  )
-}
+  );
+};
 
 export { AvailableCourses };

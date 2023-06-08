@@ -1,5 +1,5 @@
-import { Navigate, Route, Routes } from 'react-router-dom'
-import { Home } from '../views/home'
+import { Navigate, Route, Routes } from 'react-router-dom';
+import { Home } from '../views/home';
 
 const PublicRoutes = () => {
   return (
@@ -7,7 +7,7 @@ const PublicRoutes = () => {
       <Route path='home' element={<Home />} />
       <Route path='*' element={<Navigate to='/home' replace />} />
     </Routes>
-  )
-}
+  );
+};
 
 export { PublicRoutes };

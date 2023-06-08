@@ -7,10 +7,14 @@ const Home = () => {
   };
 
   return (
-    <Layout headerItems={headerItems} onRegisterOrLogin={onRegisterOrLoginHandler} currentPage={currentPageHeaderItem.home}>
+    <Layout
+      headerItems={headerItems}
+      onRegisterOrLogin={onRegisterOrLoginHandler}
+      currentPage={currentPageHeaderItem.home}
+    >
       HOME PAGE
     </Layout>
-  )
-}
+  );
+};
 
 export { Home };

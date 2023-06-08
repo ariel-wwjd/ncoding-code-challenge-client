@@ -7,10 +7,14 @@ const MyCourses = () => {
   };
 
   return (
-    <Layout headerItems={headerItems} onRegisterOrLogin={onRegisterOrLoginHandler} currentPage={currentPageHeaderItem.myCourses}>
+    <Layout
+      headerItems={headerItems}
+      onRegisterOrLogin={onRegisterOrLoginHandler}
+      currentPage={currentPageHeaderItem.myCourses}
+    >
       My Courses Page
     </Layout>
-  )
-}
+  );
+};
 
 export { MyCourses };
