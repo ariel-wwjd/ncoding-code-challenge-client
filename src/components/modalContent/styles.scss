@@ -1,0 +1,85 @@
+@import '../scss/colors.scss';
+@import '../scss/fonts.scss';
+
+.modal-form-component {
+  background-color: $color-white;
+  border-radius: 12px;
+  z-index: 30;
+
+  & .action {
+    background-color: transparent;
+    border: none;
+    margin: 16px 22px;
+    margin-bottom: -26px;
+    cursor: pointer;
+    font-size: $font-size-large;
+
+    &:hover {
+      font-weight: $font-weight-bold;
+    }
+  }
+}
+
+.modal-login-signUp {
+  & .head {
+    text-align: center;
+    margin-top: -16px;
+    border-bottom: 1px solid $color-gray;
+
+    & .name {
+      margin-bottom: 16px;
+      width: 100%;
+      display: block;
+      font-size: $font-size-medium;
+      font-weight: $font-weight-medium;
+    }
+  }
+
+  & .container {
+    padding: 40px;
+
+    & .form-title {
+      font-weight: $font-weight-medium;
+      font-size: $font-size-extra-large;
+      margin-bottom: 34px;
+    }
+
+    & .form-container {
+      display: flex;
+      margin-top: 32px;
+      
+      & .center {
+        width: 70px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        & .bar {
+          height: calc(50%);
+          border-left: 1px solid $color-gray;
+        }
+
+        & .or {
+          color: $text-color-content;
+        }
+      }
+
+      & .actions {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 340px;
+
+        & .action-button {
+          margin-bottom: 12px;
+        }
+
+        & .captcha {
+          font-size: $font-size-extra-small;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
