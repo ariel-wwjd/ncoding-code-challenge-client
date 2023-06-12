@@ -1,0 +1,35 @@
+@import '../scss/colors';
+@import '../scss/fonts';
+
+.selector-component {
+  background-color: $color-light-gray;
+  border-radius: 100px;
+  height: 40px;
+
+  & .options {
+    display: flex;
+
+    & .option {
+      list-style: none;
+      width: 100%;
+      height: 40px;
+      text-align: center;
+      line-height: 40px;
+      font-size: $font-size-small-medium;
+      font-weight: $font-weight-medium;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: background-color ease-in-out 150ms;
+
+      &:hover {
+        border-bottom: $text-color-content-secondary solid 1px;
+      }
+  
+      &.active {
+        border:  2px solid $text-color-title;
+        background-color: $color-white;
+        cursor: default;
+      }
+    }
+  }
+}
