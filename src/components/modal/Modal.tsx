@@ -1,9 +1,16 @@
 import PropTypes from 'prop-types';
-import './styles.scss';
 import { IModal } from './types';
+import './styles.scss';
 
-const Modal: React.FC<IModal> = ({ children }) => {
-  return <div className='modal-component'> {children} </div>;
+const Modal: React.FC<IModal> = ({ isVisible, children }) => {
+  return (
+    <>
+      {
+        isVisible && <div className='modal-component'>{children}</div>
+      }
+
+    </>
+  );
 };
 
 Modal.propTypes = {
@@ -12,6 +19,7 @@ Modal.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]),
+  isVisible: PropTypes.bool,
 };
 
 export { Modal };
