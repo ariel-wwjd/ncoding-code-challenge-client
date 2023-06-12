@@ -10,12 +10,14 @@ const Login: React.FC<ILogin> = ({ email, password, onChange }) => {
   };
 
   return (
-    <div className="login-form">
+    <div className='login-form'>
       <div className='input-element'>
         <Input
           id='email'
           label='Username'
-          onChange={(value) => {changeHandler('email', value)}}
+          onChange={(value) => {
+            changeHandler('email', value);
+          }}
           placeHolder='Enter your email'
           value={email}
         />
@@ -24,24 +26,28 @@ const Login: React.FC<ILogin> = ({ email, password, onChange }) => {
         <Input
           id='id2'
           label='Your password'
-          onChange={(value) => {changeHandler('password', value)}}
+          onChange={(value) => {
+            changeHandler('password', value);
+          }}
           placeHolder='Enter your password'
           value={password}
         />
       </div>
-      <Button 
+      <Button
         label='Continue'
-        onClick={() => {console.log('Continue');}}
+        onClick={() => {
+          console.log('Continue');
+        }}
         type={ButtonType.spherical}
       />
     </div>
-  )
-}
+  );
+};
 
 Login.propTypes = {
   email: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-}
+};
 
 export { Login };

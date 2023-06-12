@@ -5,27 +5,38 @@ import { Input } from '../input';
 import { ISignUp } from './types';
 import './styles.scss';
 
-const SignUp: React.FC<ISignUp> = ({ name, email, password, confirmPassword, country, onChange }) => {
+const SignUp: React.FC<ISignUp> = ({
+  name,
+  email,
+  password,
+  confirmPassword,
+  country,
+  onChange,
+}) => {
   const changeHandler = (id: string, value: string) => {
     onChange(id, value);
   };
 
   return (
-    <div className="sign-up-form">
+    <div className='sign-up-form'>
       <div className='input-element'>
         <Input
           id='name'
           label='Full name'
-          onChange={(value) => {changeHandler('name', value)}}
+          onChange={(value) => {
+            changeHandler('name', value);
+          }}
           placeHolder='Enter your full name'
           value={name}
         />
       </div>
-      <div className='input-element'>   
+      <div className='input-element'>
         <Input
           id='email'
           label='Username (Email Address)'
-          onChange={(value) => {changeHandler('email', value)}}
+          onChange={(value) => {
+            changeHandler('email', value);
+          }}
           placeHolder='Enter your email'
           value={email}
         />
@@ -34,7 +45,9 @@ const SignUp: React.FC<ISignUp> = ({ name, email, password, confirmPassword, cou
         <Input
           id='id2'
           label='Your password'
-          onChange={(value) => {changeHandler('password', value)}}
+          onChange={(value) => {
+            changeHandler('password', value);
+          }}
           placeHolder='Enter your password'
           value={password}
         />
@@ -43,7 +56,9 @@ const SignUp: React.FC<ISignUp> = ({ name, email, password, confirmPassword, cou
         <Input
           id='id2'
           label='Confirm your password'
-          onChange={(value) => {changeHandler('confirmPassword', value)}}
+          onChange={(value) => {
+            changeHandler('confirmPassword', value);
+          }}
           placeHolder='Confirm your password'
           value={confirmPassword}
         />
@@ -52,19 +67,23 @@ const SignUp: React.FC<ISignUp> = ({ name, email, password, confirmPassword, cou
         <Input
           id='id2'
           label='Country'
-          onChange={(value) => {changeHandler('country', value)}}
+          onChange={(value) => {
+            changeHandler('country', value);
+          }}
           placeHolder='Select your country'
           value={country}
         />
       </div>
-      <Button 
+      <Button
         label='Continue'
-        onClick={() => {console.log('Continue');}}
+        onClick={() => {
+          console.log('Continue');
+        }}
         type={ButtonType.spherical}
       />
     </div>
-  )
-}
+  );
+};
 
 SignUp.propTypes = {
   name: PropTypes.string.isRequired,
@@ -73,6 +92,6 @@ SignUp.propTypes = {
   confirmPassword: PropTypes.string.isRequired,
   country: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-}
+};
 
 export { SignUp };

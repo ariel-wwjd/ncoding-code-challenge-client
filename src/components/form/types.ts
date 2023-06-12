@@ -11,11 +11,11 @@ export interface ISignUp {
   password: string;
   confirmPassword: string;
   country: string;
-  onChange(id: string, value:string): void;
+  onChange(id: string, value: string): void;
 }
 
 export interface ILogin {
   email: string;
   password: string;
-  onChange(id: string, value:string): void;
+  onChange(id: string, value: string): void;
 }

@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { currentPageHeaderItem, headerItems, myCards } from '../../utils';
 import { CourseCardList } from '../../components/CourseCardList';
+import { Modal } from '../../components/modal';
 import { Layout } from '../layout';
 import './styles.scss';
 
@@ -15,6 +16,7 @@ const MyCourses = () => {
 
   return (
     <div className='my-courses-view'>
+      <Modal></Modal>
       <Layout
         headerItems={headerItemsLayout}
         onRegisterOrLoginOrLogout={onRegisterOrLoginHandler}

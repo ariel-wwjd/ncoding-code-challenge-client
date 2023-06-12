@@ -3,14 +3,7 @@ import { IModal } from './types';
 import './styles.scss';
 
 const Modal: React.FC<IModal> = ({ isVisible, children }) => {
-  return (
-    <>
-      {
-        isVisible && <div className='modal-component'>{children}</div>
-      }
-
-    </>
-  );
+  return <>{isVisible && <div className='modal-component'>{children}</div>}</>;
 };
 
 Modal.propTypes = {

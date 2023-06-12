@@ -3,9 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import { CourseCardList } from '../../components/CourseCardList';
 import { currentPageHeaderItem, headerItems, cards } from '../../utils';
 import { Modal } from '../../components/modal';
+import { ModalContent } from '../../components/modalContent';
 import { Layout } from '../layout';
 import './styles.scss';
-import { ModalContent } from '../../components/modalContent';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -24,10 +24,7 @@ const Home = () => {
   return (
     <div className='home-view'>
       <Modal isVisible={showModal}>
-        <ModalContent
-          onClose={closeModalHandler}
-          type='loginOrSignUp'
-        ></ModalContent>
+        <ModalContent onClose={closeModalHandler} type='loginOrSignUp'></ModalContent>
       </Modal>
       <Layout
         headerItems={headerItemsLayout}

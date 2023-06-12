@@ -2,12 +2,8 @@ import PropTypes from 'prop-types';
 import { IForm } from './types';
 import './styles.scss';
 
-const Form:React.FC<IForm> = ({ children, onSubmit }) => {
-  return (
-    <form onSubmit={onSubmit}>
-      {children}
-    </form>
-  )
+const Form: React.FC<IForm> = ({ children, onSubmit }) => {
+  return <form onSubmit={onSubmit}>{children}</form>;
 };
 
 Form.propTypes = {
@@ -17,6 +13,6 @@ Form.propTypes = {
     PropTypes.node,
   ]),
   onSubmit: PropTypes.func.isRequired,
-}
+};
 
 export { Form };
