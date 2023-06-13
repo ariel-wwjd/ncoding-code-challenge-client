@@ -4,7 +4,7 @@ import { CourseCard } from '../courseCard/CourseCard';
 import { ICardList } from './types';
 import './styles.scss';
 
-const CourseCardList: React.FC<ICardList> = ({ cards, isLogged }) => {
+const CourseCardList: React.FC<ICardList> = ({ cards, isLogged, onEnroll }) => {
   const cardList = cards.map((card) =>
     isLogged ? (
       <CourseCard
@@ -15,7 +15,10 @@ const CourseCardList: React.FC<ICardList> = ({ cards, isLogged }) => {
         name={card.name}
         review={card.review}
         title={card.title}
-        action={card.action}
+        action={{
+          buttonLabel: 'enroll',
+          onButtonClick: (course) => {onEnroll(course)}
+        }}
       />
     ) : (
       <CourseCard
@@ -37,6 +40,7 @@ const CourseCardList: React.FC<ICardList> = ({ cards, isLogged }) => {
 CourseCardList.propTypes = {
   // cards: PropTypes.arrayOf())
   isLogged: PropTypes.bool,
+  onEnroll: PropTypes.func.isRequired,
 };
 
 export { CourseCardList };

@@ -37,7 +37,7 @@ const CourseCard: React.FC<ICourseCard> = ({
         <div className='action-container'>
           <Button
             label={action?.buttonLabel}
-            onClick={action.onButtonClick}
+            onClick={() => {action.onButtonClick(title)}}
             type={ButtonType.spherical}
           />
         </div>

@@ -10,6 +10,6 @@ export interface ICourseCard {
   duration: string;
   action?: {
     buttonLabel: string;
-    onButtonClick(): void;
+    onButtonClick(id: string): void;
   };
 }
