@@ -4,14 +4,19 @@ import { LoginOrSigUp } from './LoginOrSignUp';
 import { Application } from './Application';
 import './styles.scss';
 
-const ModalContent: React.FC<IModalForm> = ({ children, onClose, type = 'loginOrSignUp' }) => {
+const ModalContent: React.FC<IModalForm> = ({ children, onClose, type = 'loginOrSignUp', course }) => {
   const chooseContent = (type: string) => {
     switch (type) {
       case 'loginOrSignUp':
         return <LoginOrSigUp type='signUp' />;
 
       case 'application':
-        return <Application />;
+        return (
+          <Application
+            course={course}
+            onClose={onClose}
+          />
+        );
 
       default:
         return children ? children : <></>;
@@ -36,6 +41,7 @@ ModalContent.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]),
+  course: PropTypes.string,
 };
 
 export { ModalContent };

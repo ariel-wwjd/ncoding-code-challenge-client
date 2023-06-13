@@ -83,3 +83,23 @@
     }
   }
 }
+
+.modal-application {
+  padding: 0 32px 32px 32px;
+  & .form-title {
+    font-size: $font-size-extra-large;
+    font-weight: $font-weight-medium;
+    margin-bottom: 32px;
+    text-align: center;
+  }
+  
+  & .dates {
+    margin-top: 32px;
+    text-align: center;
+    background-color: $color-light-gray;
+    height: 32px;
+    line-height: 32px;
+    font-size: $font-size-small-medium;
+    border-radius: 8px;
+  }
+}
