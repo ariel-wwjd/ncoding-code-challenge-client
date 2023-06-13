@@ -9,11 +9,23 @@ import './styles.scss';
 
 const Home = () => {
   const navigate = useNavigate();
-  const [showModal, setShowModal] = useState<boolean>(true);
+  const [showModal, setShowModal] = useState<boolean>(false);
+  const [formType, setFormType] = useState<'loginOrSignUp' | 'application' | undefined>(undefined)
+  const [selectedCourse, setSelectedCourse] = useState<string>('');
+  
+  // TODO: replace this value with the used data 
+  const isLogged = true
 
   const onRegisterOrLoginHandler = () => {
-    console.log('REGISTER OR LOGIN');
+    setShowModal(true)
+    setFormType('loginOrSignUp')
   };
+
+  const onEnrollHandler = (course: string) => {
+    setSelectedCourse(course);
+    setShowModal(true)
+    setFormType('application')
+  }
 
   const closeModalHandler = () => {
     setShowModal(false);
@@ -24,7 +36,7 @@ const Home = () => {
   return (
     <div className='home-view'>
       <Modal isVisible={showModal}>
-        <ModalContent onClose={closeModalHandler} type='loginOrSignUp'></ModalContent>
+        <ModalContent onClose={closeModalHandler} type={formType} course={selectedCourse}></ModalContent>
       </Modal>
       <Layout
         headerItems={headerItemsLayout}
@@ -33,7 +45,11 @@ const Home = () => {
         registerOrLoginOrLogoutLabel='Register or Login'
       >
         <div className='title'>Available Courses</div>
-        <CourseCardList cards={cards} />
+        <CourseCardList 
+          cards={cards}
+          isLogged={isLogged}
+          onEnroll={onEnrollHandler}
+        />
       </Layout>
     </div>
   );
