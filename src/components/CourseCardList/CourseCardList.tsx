@@ -17,7 +17,9 @@ const CourseCardList: React.FC<ICardList> = ({ cards, isLogged, onEnroll }) => {
         title={card.title}
         action={{
           buttonLabel: 'enroll',
-          onButtonClick: (course) => {onEnroll(course)}
+          onButtonClick: (course) => {
+            onEnroll(course);
+          },
         }}
       />
     ) : (

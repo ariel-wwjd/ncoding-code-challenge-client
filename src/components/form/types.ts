@@ -3,22 +3,24 @@ import { IPaymentCard } from '../paymentCard/types';
 
 export interface IForm {
   children?: string | ReactNode | ReactNode[];
-  onSubmit(): void;
+  onSubmit?(): void;
 }
 
 export interface ISignUp {
-  name: string;
-  email: string;
-  password: string;
-  confirmPassword: string;
-  country: string;
+  name?: string;
+  email?: string;
+  password?: string;
+  confirmPassword?: string;
+  country?: string;
   onChange(id: string, value: string): void;
+  onSubmit(): void;
 }
 
 export interface ILogin {
-  email: string;
-  password: string;
+  email?: string;
+  password?: string;
   onChange(id: string, value: string): void;
+  onSubmit(): void;
 }
 
 export interface IApplicationForm {

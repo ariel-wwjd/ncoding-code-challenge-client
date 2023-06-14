@@ -4,7 +4,7 @@ import { ButtonType } from '../button/types';
 import { Input } from '../input';
 import { ILogin } from './types';
 
-const Login: React.FC<ILogin> = ({ email, password, onChange }) => {
+const Login: React.FC<ILogin> = ({ email, password, onChange, onSubmit }) => {
   const changeHandler = (id: string, value: string) => {
     onChange(id, value);
   };
@@ -24,30 +24,26 @@ const Login: React.FC<ILogin> = ({ email, password, onChange }) => {
       </div>
       <div className='input-element'>
         <Input
-          id='id2'
+          id='password'
           label='Your password'
           onChange={(value) => {
             changeHandler('password', value);
           }}
           placeHolder='Enter your password'
           value={password}
+          type='password'
         />
       </div>
-      <Button
-        label='Continue'
-        onClick={() => {
-          console.log('Continue');
-        }}
-        type={ButtonType.spherical}
-      />
+      <Button label='Continue' onClick={onSubmit} type={ButtonType.spherical} />
     </div>
   );
 };
 
 Login.propTypes = {
-  email: PropTypes.string.isRequired,
-  password: PropTypes.string.isRequired,
+  email: PropTypes.string,
+  password: PropTypes.string,
   onChange: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
 };
 
 export { Login };

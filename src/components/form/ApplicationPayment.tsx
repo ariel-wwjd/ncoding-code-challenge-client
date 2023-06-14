@@ -7,8 +7,11 @@ import { Button } from '../button';
 import { IApplicationPayment } from './types';
 import './styles.scss';
 
-const ApplicationPayment: React.FC<IApplicationPayment> = ({ 
-  payments, currentPaymentId, onBack, onSubmitApplication,
+const ApplicationPayment: React.FC<IApplicationPayment> = ({
+  payments,
+  currentPaymentId,
+  onBack,
+  onSubmitApplication,
 }) => {
   const [current, setCurrent] = useState<string | undefined>(currentPaymentId);
 

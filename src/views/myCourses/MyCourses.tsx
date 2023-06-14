@@ -25,7 +25,13 @@ const MyCourses = () => {
       >
         <div className='title'>My Courses</div>
         <div className='cards-container'>
-          {/* <CourseCardList cards={myCards} isLogged /> */}
+          <CourseCardList
+            cards={myCards}
+            isLogged
+            onEnroll={() => {
+              console.log('details');
+            }}
+          />
         </div>
       </Layout>
     </div>

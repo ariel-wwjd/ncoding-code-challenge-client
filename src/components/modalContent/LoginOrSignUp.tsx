@@ -5,23 +5,42 @@ import { Button } from '../button';
 import { ButtonType } from '../button/types';
 import { IconsType } from '../icons/types';
 import { Form, Login, SignUp } from '../form';
-import { ILoginOrSignUp } from './types';
+import { ILoginOrSignUp, IUser } from './types';
 import './styles.scss';
 
-const LoginOrSigUp: React.FC<ILoginOrSignUp> = ({ type = 'signUp' }) => {
+const LoginOrSigUp: React.FC<ILoginOrSignUp> = ({ type = 'signUp', onLogin, onSignUp }) => {
   const [modalSignUpOrLoginId, setModalSignUpOrLoginId] = useState<string>(type);
   const [isLogin, setIsLogin] = useState<boolean>(true);
-
   const [currentType, setCurrentType] = useState<string>(type);
+  const [userSignUp, setUserSignUp] = useState<IUser>({});
+  const [userLogin, setUserLogin] = useState<IUser>({});
 
-  const title =
-    currentType === 'signUp' ? 'Register as a new student' : 'Are you an existing student?';
-  console.log({ currentType });
+  const title = currentType === 'signUp' ? 'Register as a new student' : 'Are you an existing student?';
 
   const changeLoginSignUpHandler = (id: string) => {
     setModalSignUpOrLoginId(id);
     setIsLogin(!isLogin);
     setCurrentType(currentType === 'login' ? 'signUp' : 'login');
+  };
+
+  const changeHandlerSignUp = (id: string, value: string) => {
+    setUserSignUp({ ...userSignUp, [id]: value });
+  };
+
+  const changeHandlerLogin = (id: string, value: string) => {
+    setUserLogin({ ...userLogin, [id]: value });
+  };
+
+  const submitSignUpHandler = () => {
+    if (userSignUp) {
+      onSignUp(userSignUp);
+    }
+  };
+
+  const submitLoginHandler = () => {
+    if (userLogin) {
+      onLogin(userLogin);
+    }
   };
 
   return (
@@ -40,22 +59,24 @@ const LoginOrSigUp: React.FC<ILoginOrSignUp> = ({ type = 'signUp' }) => {
           currentOptionId={modalSignUpOrLoginId}
         />
         <div className='form-container'>
-          <Form
-            onSubmit={() => {
-              console.log({});
-            }}
-          >
+          <Form>
             {currentType === 'signUp' ? (
               <SignUp
-                name=''
-                email=''
-                password=''
-                confirmPassword=''
-                country=''
-                onChange={(a, b) => console.log({ a, b })}
+                name={userSignUp?.name}
+                email={userSignUp?.email}
+                password={userSignUp?.password}
+                confirmPassword={userSignUp?.confirmPassword}
+                country={userSignUp?.country}
+                onChange={(id, value) => changeHandlerSignUp(id, value)}
+                onSubmit={submitSignUpHandler}
               />
             ) : (
-              <Login email='' password='' onChange={(a, b) => console.log({ a, b })} />
+              <Login
+                email={userLogin?.email}
+                password={userLogin?.password}
+                onChange={(id, value) => changeHandlerLogin(id, value)}
+                onSubmit={submitLoginHandler}
+              />
             )}
           </Form>
 
@@ -126,6 +147,9 @@ const LoginOrSigUp: React.FC<ILoginOrSignUp> = ({ type = 'signUp' }) => {
 
 LoginOrSigUp.propTypes = {
   type: PropTypes.oneOf(['login', 'signUp']),
+  onClose: PropTypes.func.isRequired,
+  onLogin: PropTypes.func.isRequired,
+  onSignUp: PropTypes.func.isRequired,
 };
 
 export { LoginOrSigUp };

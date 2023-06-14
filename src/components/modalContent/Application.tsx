@@ -29,7 +29,9 @@ const Application: React.FC<IApplication> = ({ course, onClose }) => {
               console.log('change');
             }}
             onBack={onClose}
-            onNext={() => {setCurrentPage('page2')}}
+            onNext={() => {
+              setCurrentPage('page2');
+            }}
           />
         );
 
@@ -37,8 +39,12 @@ const Application: React.FC<IApplication> = ({ course, onClose }) => {
         return (
           <ApplicationPayment
             payments={payments}
-            onBack={() => {setCurrentPage('page1')}}
-            onSubmitApplication={() => {console.log('SUBMIT');}}
+            onBack={() => {
+              setCurrentPage('page1');
+            }}
+            onSubmitApplication={() => {
+              console.log('SUBMIT');
+            }}
           />
         );
 

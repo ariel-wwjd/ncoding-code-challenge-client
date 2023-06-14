@@ -12,6 +12,7 @@ const SignUp: React.FC<ISignUp> = ({
   confirmPassword,
   country,
   onChange,
+  onSubmit,
 }) => {
   const changeHandler = (id: string, value: string) => {
     onChange(id, value);
@@ -43,29 +44,31 @@ const SignUp: React.FC<ISignUp> = ({
       </div>
       <div className='input-element'>
         <Input
-          id='id2'
+          id='password'
           label='Your password'
           onChange={(value) => {
             changeHandler('password', value);
           }}
           placeHolder='Enter your password'
           value={password}
+          type='password'
         />
       </div>
       <div className='input-element'>
         <Input
-          id='id2'
+          id='confirmPassword'
           label='Confirm your password'
           onChange={(value) => {
             changeHandler('confirmPassword', value);
           }}
           placeHolder='Confirm your password'
           value={confirmPassword}
+          type='password'
         />
       </div>
       <div className='input-element'>
         <Input
-          id='id2'
+          id='country'
           label='Country'
           onChange={(value) => {
             changeHandler('country', value);
@@ -74,24 +77,19 @@ const SignUp: React.FC<ISignUp> = ({
           value={country}
         />
       </div>
-      <Button
-        label='Continue'
-        onClick={() => {
-          console.log('Continue');
-        }}
-        type={ButtonType.spherical}
-      />
+      <Button label='Continue' onClick={onSubmit} type={ButtonType.spherical} />
     </div>
   );
 };
 
 SignUp.propTypes = {
-  name: PropTypes.string.isRequired,
-  email: PropTypes.string.isRequired,
-  password: PropTypes.string.isRequired,
-  confirmPassword: PropTypes.string.isRequired,
-  country: PropTypes.string.isRequired,
+  name: PropTypes.string,
+  email: PropTypes.string,
+  password: PropTypes.string,
+  confirmPassword: PropTypes.string,
+  country: PropTypes.string,
   onChange: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
 };
 
 export { SignUp };
