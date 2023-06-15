@@ -36,7 +36,7 @@ export interface ICourse {
   title: string;
   description: string;
   duration: string;
-  review: { stars: number; people: number; },
+  review: { stars: number; people: number };
   paymentPlan: IPaymentPlan;
 }
 
@@ -51,6 +51,6 @@ export interface IUser {
   address?: string;
   phoneNumber?: number;
   preferredLanguage?: string;
-  educationLevel?: string
+  educationLevel?: string;
   courses?: ICourse[];
 }

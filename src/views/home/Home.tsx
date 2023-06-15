@@ -17,7 +17,7 @@ const Home = () => {
   const [user, setUser] = useLocalStorage('user', {});
   const [users, setUsers] = useLocalStorage('users', []);
 
-  const currentUser = users.find((item: IUser) => (item.email === user.email));
+  const currentUser = users.find((item: IUser) => item.email === user.email);
   const isLogged = !!user.email;
 
   const onRegisterOrLoginHandler = () => {
@@ -31,9 +31,11 @@ const Home = () => {
   };
 
   const onEnrollHandler = (course: string) => {
-    const courseExist = currentUser?.courses?.find((userCourse: ICourse) => (userCourse.title === course));
+    const courseExist = currentUser?.courses?.find(
+      (userCourse: ICourse) => userCourse.title === course,
+    );
     if (courseExist) {
-      alert('You have registered to this course before')
+      alert('You have registered to this course before');
     } else {
       setSelectedCourse(course);
       setShowModal(true);

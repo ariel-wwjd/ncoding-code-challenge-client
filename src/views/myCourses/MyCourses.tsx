@@ -11,9 +11,9 @@ const MyCourses = () => {
   const [user, setUser] = useLocalStorage('user', {});
   const [users] = useLocalStorage('users', []);
 
-  const currentUser = users.find((item: IUser) => (item.email === user.email));
-  const courses = currentUser?.courses ? currentUser?.courses : []; 
-  
+  const currentUser = users.find((item: IUser) => item.email === user.email);
+  const courses = currentUser?.courses ? currentUser?.courses : [];
+
   const navigate = useNavigate();
 
   const onLogoutHandler = () => {

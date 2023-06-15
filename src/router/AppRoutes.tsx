@@ -3,9 +3,8 @@ import { PrivateRoutes } from './PrivateRoutes';
 import { PublicRoutes } from './PublicRoutes';
 import { useLocalStorage } from '../components/hooks';
 
-
 const AppRoutes = () => {
-  const[user] = useLocalStorage('user', {})
+  const [user] = useLocalStorage('user', {});
   const status = !!user.email;
 
   return (

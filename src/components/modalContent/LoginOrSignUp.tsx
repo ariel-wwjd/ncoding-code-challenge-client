@@ -15,7 +15,8 @@ const LoginOrSigUp: React.FC<ILoginOrSignUp> = ({ type = 'signUp', onLogin, onSi
   const [userSignUp, setUserSignUp] = useState<IUser>({});
   const [userLogin, setUserLogin] = useState<IUser>({});
 
-  const title = currentType === 'signUp' ? 'Register as a new student' : 'Are you an existing student?';
+  const title =
+    currentType === 'signUp' ? 'Register as a new student' : 'Are you an existing student?';
 
   const changeLoginSignUpHandler = (id: string) => {
     setModalSignUpOrLoginId(id);

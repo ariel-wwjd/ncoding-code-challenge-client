@@ -9,33 +9,33 @@ import { paymentPlansData } from '../../utils/paymentPlans';
 
 const Application: React.FC<IApplication> = ({ course, onClose }) => {
   const [currentPage, setCurrentPage] = useState<string>('page1');
-  const [currentPaymentId, setCurrentPaymentId] = useState<string>()
+  const [currentPaymentId, setCurrentPaymentId] = useState<string>();
   const [user] = useLocalStorage('user', {});
   const [users, setUsers] = useLocalStorage('users', []);
-  const currentUser = users.find((item: IUser) => (item.email === user.email))
+  const currentUser = users.find((item: IUser) => item.email === user.email);
 
   const onPaymentUpdate = (id: string) => {
     setCurrentPaymentId(id);
-  }
+  };
 
   const submitHandler = () => {
-    const selectedPaymentPlan = paymentPlansData.find((plan) => (plan.id === currentPaymentId));
-    const selectedCourse: any = cards.find((card) => (card.title === course));
-    selectedCourse.paymentPlan = selectedPaymentPlan
+    const selectedPaymentPlan = paymentPlansData.find((plan) => plan.id === currentPaymentId);
+    const selectedCourse: any = cards.find((card) => card.title === course);
+    selectedCourse.paymentPlan = selectedPaymentPlan;
 
     const newUsers = JSON.parse(JSON.stringify(users));
-    const newUser = newUsers.find((item: IUser) => (item.email === currentUser.email));
-    const userCourses = newUser.courses ? newUser.courses : []
-    newUser.courses = [...userCourses , selectedCourse];
-    
+    const newUser = newUsers.find((item: IUser) => item.email === currentUser.email);
+    const userCourses = newUser.courses ? newUser.courses : [];
+    newUser.courses = [...userCourses, selectedCourse];
+
     setUsers(newUsers);
     alert(`congratulations you are register to ${course} now`);
     window.location.reload();
-  }
+  };
 
   const onNextHandler = () => {
     setCurrentPage('page2');
-  }
+  };
 
   const handlePaymentClick = (id: string) => {
     console.log(id);
@@ -43,10 +43,10 @@ const Application: React.FC<IApplication> = ({ course, onClose }) => {
 
   const changeHandler = (id: string, value: string) => {
     const newUsers = JSON.parse(JSON.stringify(users));
-    const userArray = newUsers.find((item: IUser) => (item.email === currentUser.email));
-    userArray[id] = value
+    const userArray = newUsers.find((item: IUser) => item.email === currentUser.email);
+    userArray[id] = value;
     setUsers(newUsers);
-  }
+  };
 
   const payments = paymentPlans(handlePaymentClick);
 
@@ -62,7 +62,7 @@ const Application: React.FC<IApplication> = ({ course, onClose }) => {
             phoneNumber={currentUser.phoneNumber ? currentUser.phoneNumber : NaN}
             preferredLanguage={currentUser.preferredLanguage ? currentUser.preferredLanguage : ''}
             onChange={(id, value) => {
-              changeHandler(id, value)
+              changeHandler(id, value);
             }}
             onBack={onClose}
             onNext={onNextHandler}
@@ -78,7 +78,9 @@ const Application: React.FC<IApplication> = ({ course, onClose }) => {
             }}
             onSubmitApplication={submitHandler}
             currentPaymentId={currentPaymentId}
-            onPaymentIdChange={(id) => {onPaymentUpdate(id)}}
+            onPaymentIdChange={(id) => {
+              onPaymentUpdate(id);
+            }}
           />
         );
 
