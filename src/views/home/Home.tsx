@@ -58,11 +58,11 @@ const Home = () => {
         localStorageUser.email === user.email && localStorageUser.password === user.password,
     );
     if (checkUser) {
-      alert(`the user ${user.email} already exist, try login instead`)
+      alert(`the user ${user.email} already exist, try login instead`);
     } else {
       setUsers([...users, user]);
       setUser(user);
-      alert(`user ${user.name} saved`)
+      alert(`user ${user.name} saved`);
       setShowModal(false);
     }
   };

@@ -29,7 +29,7 @@ const ApplicationForm: React.FC<IApplicationForm> = ({
         <div className='double'>
           <div className='input-application first'>
             <Input
-              id='date-of-birth'
+              id='dateOfBirth'
               label='Date of birth'
               onChange={(value) => {
                 changeHandler('date-of-birth', value);
@@ -55,7 +55,7 @@ const ApplicationForm: React.FC<IApplicationForm> = ({
             id='address'
             label='Address'
             onChange={(value) => {
-              changeHandler('gender', value);
+              changeHandler('address', value);
             }}
             placeHolder='Enter your address'
             value={address}
@@ -63,10 +63,10 @@ const ApplicationForm: React.FC<IApplicationForm> = ({
         </div>
         <div className='input-application'>
           <Input
-            id='phone-number'
+            id='phoneNumber'
             label='Phone Number'
             onChange={(value) => {
-              changeHandler('phone-number', value);
+              changeHandler('phoneNumber', value);
             }}
             placeHolder='Enter your phone number'
             value={phoneNumber.toString()}
@@ -80,7 +80,7 @@ const ApplicationForm: React.FC<IApplicationForm> = ({
               label='Preferred Language'
               placeHolder='enter your preferred language'
               onChange={(value) => {
-                changeHandler('preferred-language', value);
+                changeHandler('preferredLanguage', value);
               }}
               value={preferredLanguage}
             />
@@ -90,7 +90,7 @@ const ApplicationForm: React.FC<IApplicationForm> = ({
               id='education-level'
               label='Education Level'
               onChange={(value) => {
-                changeHandler('education-level', value);
+                changeHandler('educationLevel', value);
               }}
               placeHolder='Enter your education level'
               value={educationLevel}

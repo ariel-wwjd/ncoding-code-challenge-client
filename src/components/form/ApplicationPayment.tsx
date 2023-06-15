@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { ButtonSize, ButtonType } from '../button/types';
 import { PaymentCard } from '../paymentCard';
@@ -12,11 +11,10 @@ const ApplicationPayment: React.FC<IApplicationPayment> = ({
   currentPaymentId,
   onBack,
   onSubmitApplication,
+  onPaymentIdChange,
 }) => {
-  const [current, setCurrent] = useState<string | undefined>(currentPaymentId);
-
   const clickHandler = (id: string) => {
-    setCurrent(id);
+    onPaymentIdChange(id);
   };
 
   const cards = payments.map((card) => (
@@ -30,7 +28,7 @@ const ApplicationPayment: React.FC<IApplicationPayment> = ({
         totalAmount={card.totalAmount}
         onClick={(id) => clickHandler(id)}
         interest={card.interest}
-        isSelected={current === card.id}
+        isSelected={currentPaymentId === card.id}
       />
     </div>
   ));
@@ -65,6 +63,9 @@ const ApplicationPayment: React.FC<IApplicationPayment> = ({
 ApplicationPayment.propTypes = {
   // payments: PropTypes.arrayOf(),
   currentPaymentId: PropTypes.string,
+  onBack: PropTypes.func.isRequired,
+  onPaymentIdChange: PropTypes.func.isRequired,
+  onSubmitApplication: PropTypes.func.isRequired,
 };
 
 export { ApplicationPayment };

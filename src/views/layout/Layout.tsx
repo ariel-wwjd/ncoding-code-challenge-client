@@ -12,15 +12,11 @@ const Layout: React.FC<ILayout> = ({
   currentPage,
   registerOrLoginOrLogoutLabel,
 }) => {
-  const onRegisterOrLoginOrLogoutHandler = () => {
-    onRegisterOrLoginOrLogout();
-  };
-
   return (
     <div className='layout-view'>
       <Header
         navItems={headerItems}
-        onRegisterOrLoginOrLogout={onRegisterOrLoginOrLogoutHandler}
+        onRegisterOrLoginOrLogout={onRegisterOrLoginOrLogout}
         currentPage={currentPage}
         registerOrLoginOrLogoutLabel={registerOrLoginOrLogoutLabel}
       />

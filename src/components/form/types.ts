@@ -40,4 +40,5 @@ export interface IApplicationPayment {
   payments: IPaymentCard[];
   onSubmitApplication(): void;
   onBack(): void;
+  onPaymentIdChange(id: string): void;
 }
