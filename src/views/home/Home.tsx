@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { currentPageHeaderItem, headerItems, cards } from '../../utils';
 import { CourseCardList } from '../../components/CourseCardList';
 import { ModalContent } from '../../components/modalContent';
-import { IUser } from '../../components/modalContent/types';
+import { ICourse, IUser } from '../../components/modalContent/types';
 import { useLocalStorage } from '../../components/hooks';
 import { Modal } from '../../components/modal';
 import { Layout } from '../layout';
@@ -17,11 +17,13 @@ const Home = () => {
   const [user, setUser] = useLocalStorage('user', {});
   const [users, setUsers] = useLocalStorage('users', []);
 
+  const currentUser = users.find((item: IUser) => (item.email === user.email));
   const isLogged = !!user.email;
 
   const onRegisterOrLoginHandler = () => {
     if (isLogged) {
       setUser({});
+      window.location.reload();
     } else {
       setShowModal(true);
       setFormType('loginOrSignUp');
@@ -29,9 +31,14 @@ const Home = () => {
   };
 
   const onEnrollHandler = (course: string) => {
-    setSelectedCourse(course);
-    setShowModal(true);
-    setFormType('application');
+    const courseExist = currentUser?.courses?.find((userCourse: ICourse) => (userCourse.title === course));
+    if (courseExist) {
+      alert('You have registered to this course before')
+    } else {
+      setSelectedCourse(course);
+      setShowModal(true);
+      setFormType('application');
+    }
   };
 
   const closeModalHandler = () => {
@@ -47,6 +54,7 @@ const Home = () => {
       setUser(checkUser);
       alert(`Welcome ${checkUser.name}`);
       setShowModal(false);
+      window.location.reload();
     } else {
       alert(`the user ${user.email} does not exist, check your credentials or sign Up instead`);
     }
@@ -64,6 +72,7 @@ const Home = () => {
       setUser(user);
       alert(`user ${user.name} saved`);
       setShowModal(false);
+      window.location.reload();
     }
   };
 

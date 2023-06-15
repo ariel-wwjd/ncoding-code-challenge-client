@@ -32,7 +32,7 @@ const ApplicationForm: React.FC<IApplicationForm> = ({
               id='dateOfBirth'
               label='Date of birth'
               onChange={(value) => {
-                changeHandler('date-of-birth', value);
+                changeHandler('dateOfBirth', value);
               }}
               value={dateOfBirth}
               type='date'

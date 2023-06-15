@@ -29,7 +29,8 @@ const Application: React.FC<IApplication> = ({ course, onClose }) => {
     newUser.courses = [...userCourses , selectedCourse];
     
     setUsers(newUsers);
-    alert(`congratulations you are register to ${course} now`)
+    alert(`congratulations you are register to ${course} now`);
+    window.location.reload();
   }
 
   const onNextHandler = () => {

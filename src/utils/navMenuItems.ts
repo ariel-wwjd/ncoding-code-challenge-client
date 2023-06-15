@@ -4,7 +4,7 @@ const headerItems = (navigate: (route: string) => void) => {
       id: 'AvailableCourses',
       label: 'Available Courses',
       onClick: () => {
-        navigate('/available-courses');
+        navigate('/');
       },
     },
     {
