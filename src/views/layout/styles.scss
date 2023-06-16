@@ -1,0 +1,11 @@
+.layout-view {
+  height: calc(100% + 100px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  & .content {
+    padding: 74px 80px;
+    height: calc(100% - 200px);
+  }
+}

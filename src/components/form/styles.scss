@@ -1,0 +1,90 @@
+@import '../scss/fonts';
+@import '../scss/colors';
+
+.sign-up-form {
+  width: 340px;
+
+  & .input-element {
+    margin-bottom: 24px;
+  }
+}
+
+.login-form {
+  width: 340px;
+
+  & .input-element {
+    margin-bottom: 44px;
+  }
+}
+
+.application-form {
+  & .application-title {
+    font-size: $font-size-medium;
+    font-weight: $font-weight-medium;
+    text-align: center;
+    margin-top: 12px;
+    margin-bottom: 4px;
+    color: $text-color-title;
+  }
+
+  & .subtitle {
+    font-size: $font-size-small;
+    color: $text-color-content-secondary;
+    margin-bottom: 16px;
+    width: 673px;
+  }
+
+  & .application-inputs {
+    margin-bottom: 100px;
+    & .double {
+      display: flex;
+
+      & .input-application.first {
+        margin-right: 24px;
+      }
+
+      & .input-application {
+        width: 50%;
+      }
+    }
+
+    & .input-application {
+      margin-bottom: 24px;
+    }
+  }
+
+  & .buttons {
+    border-top: solid 1px $color-gray;
+    display: flex;
+    justify-content: space-between;
+    
+    & .button {
+      margin-top: 12px;
+    }
+  }
+}
+
+.application-payment {
+  & .cards-container {
+    max-width: 673px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+
+    & .card-payment {
+      margin: auto;
+      margin-bottom: 20px;
+    }
+  }
+
+  & .buttons {
+    border-top: solid 1px $color-gray;
+    display: flex;
+    justify-content: space-between;
+    
+    & .button {
+      margin-top: 12px;
+    }
+  }
+}

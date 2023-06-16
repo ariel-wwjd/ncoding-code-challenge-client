@@ -1,0 +1,12 @@
+@import '../../components/scss/colors.scss';
+@import '../../components/scss/fonts.scss';
+
+
+.my-courses-view {
+  & .title {
+    color: $text-color-title;
+    font-weight: $font-weight-medium;
+    font-size: $font-size-large;
+    margin-bottom: 24px;
+  }
+}
