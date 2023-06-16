@@ -18,28 +18,48 @@ const Application: React.FC<IApplication> = ({ course, onClose }) => {
     setCurrentPaymentId(id);
   };
 
-  const submitHandler = () => {
-    const selectedPaymentPlan = paymentPlansData.find((plan) => plan.id === currentPaymentId);
-    const selectedCourse: any = cards.find((card) => card.title === course);
-    selectedCourse.paymentPlan = selectedPaymentPlan;
+  const submitApplicationHandler = () => {
+    if (!currentPaymentId) {
+      alert('You should choose a payment plan before enroll to this course');
+    } else {
+      const selectedPaymentPlan = paymentPlansData.find((plan) => plan.id === currentPaymentId);
+      const selectedCourse: any = cards.find((card) => card.title === course);
+      selectedCourse.paymentPlan = selectedPaymentPlan;
 
-    const newUsers = JSON.parse(JSON.stringify(users));
-    const newUser = newUsers.find((item: IUser) => item.email === currentUser.email);
-    const userCourses = newUser.courses ? newUser.courses : [];
-    newUser.courses = [...userCourses, selectedCourse];
+      const newUsers = JSON.parse(JSON.stringify(users));
+      const newUser = newUsers.find((item: IUser) => item.email === currentUser.email);
+      const userCourses = newUser.courses ? newUser.courses : [];
+      newUser.courses = [...userCourses, selectedCourse];
 
-    setUsers(newUsers);
-    alert(`congratulations you are register to ${course} now`);
-    window.location.reload();
+      setUsers(newUsers);
+      alert(`congratulations you are register to ${course} now`);
+      window.location.reload();
+    }
   };
 
   const onNextHandler = () => {
-    setCurrentPage('page2');
+    let errorMessage = 'The field(s) ';
+    let noErrors = true;
+
+    if (!currentUser.address || currentUser.address === '') {
+      errorMessage = errorMessage + 'Address ';
+      noErrors = false;
+    }
+    if (!currentUser.phoneNumber || Number.isNaN(currentUser.phoneNumber)) {
+      errorMessage = errorMessage + 'Phone number ';
+      noErrors = false;
+    }
+
+    errorMessage = errorMessage + 'are required ';
+
+    if (noErrors) {
+      setCurrentPage('page2');
+    } else {
+      alert(errorMessage);
+    }
   };
 
-  const handlePaymentClick = (id: string) => {
-    console.log(id);
-  };
+  const handlePaymentClick = (id: string) => id;
 
   const changeHandler = (id: string, value: string) => {
     const newUsers = JSON.parse(JSON.stringify(users));
@@ -76,7 +96,7 @@ const Application: React.FC<IApplication> = ({ course, onClose }) => {
             onBack={() => {
               setCurrentPage('page1');
             }}
-            onSubmitApplication={submitHandler}
+            onSubmitApplication={submitApplicationHandler}
             currentPaymentId={currentPaymentId}
             onPaymentIdChange={(id) => {
               onPaymentUpdate(id);

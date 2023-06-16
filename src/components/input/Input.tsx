@@ -2,7 +2,15 @@ import PropTypes from 'prop-types';
 import { IInput } from './types';
 import './styles.scss';
 
-const Input: React.FC<IInput> = ({ id, label, placeHolder, value, onChange, type = 'text' }) => {
+const Input: React.FC<IInput> = ({
+  id,
+  label,
+  placeHolder,
+  value,
+  onChange,
+  type = 'text',
+  isRequired = false,
+}) => {
   const changeHandler = (newValue: string) => {
     onChange(newValue);
   };
@@ -19,6 +27,7 @@ const Input: React.FC<IInput> = ({ id, label, placeHolder, value, onChange, type
             changeHandler(e.target.value);
           }}
           type={type}
+          required={isRequired}
         />
       </div>
       <div className='right-container' onClick={() => changeHandler('')}>
@@ -35,6 +44,7 @@ Input.propTypes = {
   value: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   type: PropTypes.oneOf(['text', 'email', 'password', 'date', 'number']),
+  isRequired: PropTypes.bool,
 };
 
 export { Input };

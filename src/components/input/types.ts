@@ -5,4 +5,5 @@ export interface IInput {
   value?: string;
   onChange(newValue: string): void;
   type?: 'text' | 'email' | 'password' | 'date' | 'number';
+  isRequired?: boolean;
 }

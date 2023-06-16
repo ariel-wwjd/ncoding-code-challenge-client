@@ -53,24 +53,26 @@ const ApplicationForm: React.FC<IApplicationForm> = ({
         <div className='input-application'>
           <Input
             id='address'
-            label='Address'
+            label='Address*'
             onChange={(value) => {
               changeHandler('address', value);
             }}
             placeHolder='Enter your address'
             value={address}
+            isRequired
           />
         </div>
         <div className='input-application'>
           <Input
             id='phoneNumber'
-            label='Phone Number'
+            label='Phone Number*'
             onChange={(value) => {
               changeHandler('phoneNumber', value);
             }}
             placeHolder='Enter your phone number'
             value={phoneNumber.toString()}
             type='number'
+            isRequired
           />
         </div>
         <div className='double'>

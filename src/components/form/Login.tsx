@@ -14,24 +14,27 @@ const Login: React.FC<ILogin> = ({ email, password, onChange, onSubmit }) => {
       <div className='input-element'>
         <Input
           id='email'
-          label='Username'
+          label='Username*'
           onChange={(value) => {
             changeHandler('email', value);
           }}
           placeHolder='Enter your email'
           value={email}
+          type='email'
+          isRequired
         />
       </div>
       <div className='input-element'>
         <Input
           id='password'
-          label='Your password'
+          label='Your password*'
           onChange={(value) => {
             changeHandler('password', value);
           }}
           placeHolder='Enter your password'
           value={password}
           type='password'
+          isRequired
         />
       </div>
       <Button label='Continue' onClick={onSubmit} type={ButtonType.spherical} />

@@ -10,7 +10,7 @@
 
   & .left-container {
     width: calc(100% - 50px);
-    padding: 5px 16px;
+    padding: 4px 16px;
 
     & .label {
       font-size: $font-size-small-medium;
@@ -22,9 +22,12 @@
       width: 100%;
       font-size: medium;
       line-height: 24px;
+
+      &:invalid {
+        border-bottom: $color-soft-red solid 5px;
+      }
     }
   }
-
 
   & .right-container {
     width: 50px;

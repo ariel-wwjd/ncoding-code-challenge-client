@@ -18,6 +18,8 @@ const LoginOrSigUp: React.FC<ILoginOrSignUp> = ({ type = 'signUp', onLogin, onSi
   const title =
     currentType === 'signUp' ? 'Register as a new student' : 'Are you an existing student?';
 
+  const emailRegex = /^[^\s@]+@[^\s@]+$/;
+
   const changeLoginSignUpHandler = (id: string) => {
     setModalSignUpOrLoginId(id);
     setIsLogin(!isLogin);
@@ -33,14 +35,85 @@ const LoginOrSigUp: React.FC<ILoginOrSignUp> = ({ type = 'signUp', onLogin, onSi
   };
 
   const submitSignUpHandler = () => {
-    if (userSignUp) {
+    let errorMessage = 'The field(s) ';
+    let noErrors = true;
+
+    if (!userSignUp.name || userSignUp.name === '') {
+      errorMessage = errorMessage + 'Username ';
+      noErrors = false;
+    }
+    if (!userSignUp.email || userSignUp.email === '') {
+      errorMessage = errorMessage + 'Email ';
+      noErrors = false;
+    }
+    if (!userSignUp.password || userSignUp.password === '') {
+      errorMessage = errorMessage + 'Password ';
+      noErrors = false;
+    }
+    if (!userSignUp.confirmPassword || userSignUp.confirmPassword === '') {
+      errorMessage = errorMessage + 'Confirm Password ';
+      noErrors = false;
+    }
+
+    errorMessage = errorMessage + 'are required ';
+
+    if (userSignUp.password !== userSignUp.confirmPassword) {
+      if (noErrors) {
+        errorMessage = 'The password and confirm password does not match';
+      } else {
+        errorMessage = errorMessage + 'and the password and confirm password does not match';
+      }
+      noErrors = false;
+    }
+
+    if (!emailRegex.test(userSignUp.email ? userSignUp.email : '')) {
+      if (noErrors) {
+        errorMessage = 'The email does not look correct make sure you have @ or .com';
+      } else {
+        errorMessage =
+          errorMessage +
+          'and the email does not look correct make sure you have included @ and the domain';
+      }
+      noErrors = false;
+    }
+
+    if (userSignUp && noErrors) {
       onSignUp(userSignUp);
+    } else {
+      alert(errorMessage);
     }
   };
 
   const submitLoginHandler = () => {
-    if (userLogin) {
+    let errorMessage = 'The field(s) ';
+    let noErrors = true;
+
+    if (!userLogin.email || userLogin.email === '') {
+      errorMessage = errorMessage + 'Username ';
+      noErrors = false;
+    }
+    if (!userLogin.password || userLogin.password === '') {
+      errorMessage = errorMessage + 'Password ';
+      noErrors = false;
+    }
+
+    errorMessage = errorMessage + 'are required';
+
+    if (!emailRegex.test(userLogin.email ? userLogin.email : '')) {
+      if (noErrors) {
+        errorMessage = 'The email does not look correct make sure you have @ or .com';
+      } else {
+        errorMessage =
+          errorMessage +
+          'and the email does not look correct make sure you have included @ and the domain ';
+      }
+      noErrors = false;
+    }
+
+    if (userLogin && noErrors) {
       onLogin(userLogin);
+    } else {
+      alert(errorMessage);
     }
   };
 

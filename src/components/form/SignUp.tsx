@@ -23,47 +23,52 @@ const SignUp: React.FC<ISignUp> = ({
       <div className='input-element'>
         <Input
           id='name'
-          label='Full name'
+          label='Full name*'
           onChange={(value) => {
             changeHandler('name', value);
           }}
           placeHolder='Enter your full name'
           value={name}
+          isRequired
         />
       </div>
       <div className='input-element'>
         <Input
           id='email'
-          label='Username (Email Address)'
+          label='Username (Email Address)*'
           onChange={(value) => {
             changeHandler('email', value);
           }}
           placeHolder='Enter your email'
           value={email}
+          type='email'
+          isRequired
         />
       </div>
       <div className='input-element'>
         <Input
           id='password'
-          label='Your password'
+          label='Your password*'
           onChange={(value) => {
             changeHandler('password', value);
           }}
           placeHolder='Enter your password'
           value={password}
           type='password'
+          isRequired
         />
       </div>
       <div className='input-element'>
         <Input
           id='confirmPassword'
-          label='Confirm your password'
+          label='Confirm your password*'
           onChange={(value) => {
             changeHandler('confirmPassword', value);
           }}
           placeHolder='Confirm your password'
           value={confirmPassword}
           type='password'
+          isRequired
         />
       </div>
       <div className='input-element'>
