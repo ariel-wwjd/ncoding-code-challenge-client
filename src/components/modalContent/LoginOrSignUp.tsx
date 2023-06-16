@@ -12,8 +12,17 @@ const LoginOrSigUp: React.FC<ILoginOrSignUp> = ({ type = 'signUp', onLogin, onSi
   const [modalSignUpOrLoginId, setModalSignUpOrLoginId] = useState<string>(type);
   const [isLogin, setIsLogin] = useState<boolean>(true);
   const [currentType, setCurrentType] = useState<string>(type);
-  const [userSignUp, setUserSignUp] = useState<IUser>({});
-  const [userLogin, setUserLogin] = useState<IUser>({});
+  const [userLogin, setUserLogin] = useState<IUser>({
+    email: '',
+    password: '',
+  });
+  const [userSignUp, setUserSignUp] = useState<IUser>({
+    name: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+    country: '',
+  });
 
   const title =
     currentType === 'signUp' ? 'Register as a new student' : 'Are you an existing student?';
